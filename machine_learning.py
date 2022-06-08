@@ -103,3 +103,13 @@ accuracy_score(y_test, prediction)
 classification_report(y_test, prediction)
 print(f'Test Accuracy: {accuracy_score(y_test, prediction)}')
 print(f'Classification Report: \n {classification_report(y_test, prediction)}')
+
+# Predict
+with open('model_picklev2' , 'wb') as f :
+  pickle.dump(model,f)
+
+with open('model_picklev2' , 'rb') as f :
+    mp = pickle.load(f)
+
+print(X_test)
+print(mp.predict([[255,613,504,430,708]]))
